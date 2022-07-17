@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Interactive Graphics Project</title>
+		<link rel="stylesheet" href="styles.css"></style>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap">
+		<script type="text/javascript" src="libs/bootstrap.min.js"></script>
+		<script type="text/javascript" src="libs/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" src="libs/howler.min.js"></script>
+		<script type="text/javascript" src="libs/tween.umd.js"></script>
+		<script type="text/javascript" src="libs/jquery.min.js"></script>
+		<script type="text/javascript" src="libs/three.min.js"></script>
+		<script type="text/javascript" src="src/utils.js" async></script>
+		<script type="text/javascript" src="src/health.js" async></script>
+		<script type="text/javascript" src="src/cloud.js" async></script>
+		<script type="text/javascript" src="src/sky.js" async></script>
+		<script type="text/javascript" src="src/helicopter.js" async></script>
+		<script type="text/javascript" src="src/meloon.js" async></script>
+		<script type="text/javascript" src="src/bullet.js" async></script>
+		<script type="text/javascript" src="src/effects-utils.js" async></script>
+		<script type="text/javascript" src="src/game.js" async></script>
+		<script type="text/javascript" src="src/main.js" async></script>
+	</head>
+
+	<body>
+		<div class="fixed-top mt-3">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<span id="idCurrent" class="badge rounded-pill">Current: 0</span>
+						<span id="idBest" class="badge rounded-pill">Best: 0</span>
+						<span id="idNewRecord" class="badge rounded-pill bg-success">NEW RECORD</span>
+					</div>
+	
+					<div class="col-md-4">
+					</div>
+	
+					<div class="col-md-4">
+						<div class="progress">
+							<!-- inject classes bg-success, bg-warning, bg-danger --> 
+							<div class="progress-bar" id="idHealth" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+					</div>
+				</div>	
+			</div>
+	
+		</div>
+
+
+		<div id="controls" class="controls container ">
+			<div class="center center-v center-h">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="text-center">
+							<h3>
+								Cocomero Battle
+							</h3>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-5">
+					<div class="col-md-5">
+						<label>Controls</label>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="radioControls" id="idWasd">
+							<label class="form-check-label" for="radioControls1">
+								WASD
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="radioControls" id="idMouse" checked>
+							<label class="form-check-label" for="radioControls2">
+								Mouse
+							</label>
+						</div>
+						<label>Helicpter color</label>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="radioColor" id="idGreen">
+							<label class="form-check-label" for="radioColors1">
+								Green
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="radioColor" id="idOrange" checked>
+							<label class="form-check-label" for="radioColors2">
+								Orange
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="radioColor" id="idYellow">
+							<label class="form-check-label" for="radioColors3">
+								Yellow
+							</label>
+						</div>
+					</div>
+					<div class="col-md-7">
+						<label for="idObstacleSize" class="form-label">Obstacle Size</label>
+						<input type="range" class="form-range" min="8" max="20" step="1" id="idObstacleSize">
+						<label for="idSpeed" class="form-label">Speed</label>
+						<input type="range" class="form-range" min="0.01" max="0.15" step="0.01" id="idSpeed">
+						<label for="idDifficulty" class="form-label">Difficulty</label>
+						<input type="range" class="form-range" min="2" max="10" step="1" id="idDifficulty">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" value="" id="idMusic" checked>
+									<label class="form-check-label" for="idMusic">
+									  Music
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" value="" id="idSounds" checked>
+									<label class="form-check-label" for="idSounds">
+									  Sounds
+									</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" value="" id="idCheckboxEffects" checked>
+									<label class="form-check-label" for="idCheckboxEffects">
+									  Animations
+									</label>
+								</div>	
+							</div>
+						</div>
+
+						  
+					</div>
+				</div>
+				<div class="row mt-5">
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+						<button class="button-53" id="startBtn" role="button">Start</button>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
