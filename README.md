@@ -1,4 +1,4 @@
-# Cocomer Battle
+# Cocomero Battle
 Interactive Graphics Project @ Sapienza University
 Stefano Foti - 1914737
 
