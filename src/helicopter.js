@@ -60,12 +60,16 @@ class Helicopter {
         // basement cylinders
         let gBasement = new THREE.CylinderGeometry(5, 5, 120, 6);
         let basementL = new THREE.Mesh(gBasement, matBasement);
-        basementL.position.set(5, -42, 32);
-        basementL.rotation.z = Math.PI/2;
+        basementL.position.set(19, -5, 0);
+        basementL.rotation.x = basementBackLeft.rotation.x - Math.PI / 6;
+        basementL.rotation.z = basementBackLeft.rotation.z - Math.PI / 6;
+
         let basementR = basementL.clone();
-        basementR.position.set(5, -42, -32);
-        basement.add(basementL);
-        basement.add(basementR);
+        basementR.position.set(19, -5, 0);
+        basementR.rotation.x = basementBackRight.rotation.x + Math.PI / 6;
+        basementR.rotation.z = basementBackRight.rotation.z - Math.PI / 6;
+        basementBackLeft.add(basementL);
+        basementBackRight.add(basementR);
         return basement;
     }
 
@@ -146,9 +150,9 @@ class Helicopter {
         tailWingPerpendicular.rotation.set(0,0,Math.PI/2);
         this.tailWing.add(tailWingPerpendicular);
 
-        this.tailWing.position.set(-62, 20, 0);
+        this.tailWing.position.set(0, 9, 0);
         
-        tail.add(this.tailWing);
+        tailVertical.add(this.tailWing);
 
         tail.position.set(-70, 0, 0);
         return tail;
