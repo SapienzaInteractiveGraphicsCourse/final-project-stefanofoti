@@ -37,6 +37,7 @@ class Meloons {
                     meloon.m.isMoving = false;
                 })
                 .start()
+                effectsOn && new TWEEN.Tween(meloon.m.rotation).to({x:getRandom(0,5), y:getRandom(0,5)}, 2000).start()
             }
             bullets.filter(b => b.thrown).forEach(bullet => {
                 let diff = bullet.m.position.clone().sub(meloon.m.position.clone());
